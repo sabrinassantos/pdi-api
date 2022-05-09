@@ -1,0 +1,23 @@
+version: '3.7'
+
+services:
+  # devcontainer:
+  #   image: pdi/api-dev-container:0.1
+  #   build: .
+  #   container_name: api-dev-container
+  #   hostname: api-dev.local
+  #   working_dir: /src
+  #   volumes:
+  #      - ..:/src
+  #   command: sleep infinity
+  mysql:
+    image: mysql:5.7.10
+    environment:
+      - MYSQL_USER=pdi
+      - MYSQL_PASSWORD=pd1
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=pdi      
+    ports: 
+      - "3306:3306"
+    volumes:
+      - ./volumes/mysql-data:/var/lib/mysql
